@@ -5,7 +5,10 @@ const Users = require("./users-model.js");
 router.get("/", (req, res) => {
   Users.find()
     .then(users => {
-      res.status(200).json(users);
+      res.status(200).json({
+        users,
+        message: 'Users Successfully Fetched'
+      });
     })
     .catch(err => res.send(err));
 });
